@@ -85,6 +85,8 @@ void quickSort(int *arr, const int left, const int right)
             if (l < r) // 交换
             {
                 swap(&arr[l], &arr[r]);
+                l++;
+                r--;
             }
             else
             {
@@ -112,7 +114,7 @@ void quick_sort(int *arr, int len)
 /*
     测试
 */
-#define n 10000
+#define n 100000
 #include <stdlib.h>
 int main()
 {

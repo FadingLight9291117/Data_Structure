@@ -60,6 +60,7 @@ def quickSort(arr):
 
 
 # 测试
-arr = [random.randint(-1000, 1000) for _ in range(10000)]
+arr = [random.randint(-10000, 10000) for _ in range(10000)]
 arr = quickSort(arr)
+# print('finish')
 print(arr)
