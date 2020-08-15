@@ -7,8 +7,8 @@ import random
 # 快速排序核心函数
 def quickSortCore(arr, left, right):
     # 1. 定阈值
-    cutOff = 5
-    if left - right >= 5:
+    cutOff = 8
+    if right - left >= cutOff:
         # 2. 选主元
         pivot = medium3(arr, left, right)
         l = left + 1
@@ -21,6 +21,10 @@ def quickSortCore(arr, left, right):
                 r -= 1
             if arr[l] < arr[r]:
                 arr[l], arr[r] = arr[r], arr[l]
+                l += 1
+                r -= 1
+            else:
+                break;
         arr[l], arr[right - 1] = arr[right - 1], arr[l]
         quickSortCore(arr, left, l - 1)
         quickSortCore(arr, l + 1, right)
@@ -60,7 +64,9 @@ def quickSort(arr):
 
 
 # 测试
-arr = [random.randint(-10000, 10000) for _ in range(10000)]
+N = 10
+arr = [random.randint(-N, N) for _ in range(N)]
+print(arr)
 arr = quickSort(arr)
 # print('finish')
 print(arr)
