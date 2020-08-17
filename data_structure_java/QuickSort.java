@@ -28,7 +28,7 @@ class QuickSort {
 	}
 
 	public static void insertSort(int[] arr, int left, int right) {
-		for (int i = left + 1; i < right; i++ ) {
+		for (int i = left + 1; i <= right; i++ ) {					// 注意是<=right
 			int temp = arr[i];
 			int j;
 			for (j = i; j > left && arr[j - 1] > temp; j--) {
@@ -62,6 +62,7 @@ class QuickSort {
 					break;
 				}
 			}
+			swap(arr, l, right - 1);
 			quickSortCore(arr, left, l - 1);
 			quickSortCore(arr, l + 1, right);
 		} else {
@@ -74,13 +75,13 @@ class QuickSort {
 		quickSortCore(arr, 0, arr.length - 1);
 	}
 
-	public static  final int N = 80;
+	public static  final int N = 100;
 
 	public static void main(String[] args) {
 		int[] a = new int[N];
 		Random r = new Random();
 		for (int i = 0; i < N; i++) {
-			a[i] = r.nextInt(100);
+			a[i] = r.nextInt(N * 10);
 		}
 		quickSort(a);
 		for (int value : a) {
